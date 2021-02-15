@@ -1,15 +1,17 @@
 // ==UserScript==
-// @name         我的脚本
-// @namespace    http://tampermonkey.net/
+// @name         Welcome back!
+// @namespace    http://www.bing.com/
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
-// @match        http://*/*
-// @grant        none
+// @match        http://www.bing.com/*
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
 (function () {
   'use strict';
 
-  // Your code here...
+  window.alert('Welcome back!')
 })();
