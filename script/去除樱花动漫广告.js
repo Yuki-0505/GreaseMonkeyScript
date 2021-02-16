@@ -13,10 +13,15 @@
 (function () {
   'use strict';
   // 方式一
-  // document.querySelector('#HMRichBox').remove()
+  // document.querySelector('div#player_pause').remove()
+  let interval = setInterval(function () {
+    if (!dp) return
+    clearInterval(interval)
+    dp.on('pause', () => h2_remove())
+  }, 300)
   // 方式二
-  let HMRichBoxStyle = document.createElement('style')
-  HMRichBoxStyle.setAttribute('type', 'text/css')
-  HMRichBoxStyle.innerHTML = `#HMRichBox {display: none !important;}`
-  document.querySelector('head').appendChild(HMRichBoxStyle);
+  let style = document.createElement('style')
+  style.setAttribute('type', 'text/css')
+  style.innerHTML = `#HMRichBox, {display: none !important; visibility: hidden !important;}`
+  document.querySelector('head').appendChild(style);
 })()
