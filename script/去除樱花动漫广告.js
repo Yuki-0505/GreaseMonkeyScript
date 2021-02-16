@@ -5,23 +5,19 @@
 // @description  try to take over the world!
 // @author       Pink-0505
 // @match        http://www.imomoe.ai/*
-// @grant        none
+// @grant        GM_addStyle
 // @license      AGPL-3.0
 // @icon         http://www.imomoe.ai/favicon.ico
 // ==/UserScript==
-
-(function () {
+;(function () {
   'use strict';
   // 方式一
-  // document.querySelector('div#player_pause').remove()
-  let interval = setInterval(function () {
-    if (!dp) return
-    clearInterval(interval)
-    dp.on('pause', () => h2_remove())
-  }, 300)
+  // document.querySelector('#player_pause').remove()
   // 方式二
-  let style = document.createElement('style')
-  style.setAttribute('type', 'text/css')
-  style.innerHTML = `#HMRichBox, {display: none !important; visibility: hidden !important;}`
-  document.querySelector('head').appendChild(style);
+  GM_addStyle(`
+  #HMRichBox, #player_pause {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  `)
 })()
