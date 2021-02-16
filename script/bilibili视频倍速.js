@@ -33,6 +33,7 @@
     }
     $li1.remove()
   }, 3000)
+  // 原生js
   // const video = document.querySelector('video')
   // let interval = setInterval(function () {
   //   let ul = document.querySelector('.bilibili-player-video-btn-speed-menu')
