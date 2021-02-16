@@ -48,7 +48,6 @@
         let joinTime = result.data.pfs.profile.jointime
         let date = new Date()
         date.setTime(joinTime * 1000)
-        // let localeString = date.toLocaleString()
         let localeString = date.format('yyyy-MM-dd hh:mm:ss')
         console.log(date.format('yyyy-MM-dd hh:mm:ss'))
         let $time = $(`<div class="item uid"><span class=""><b>&nbsp入站日期：<b/></span><span class="text"><b>${localeString}</b></span></div>`)
