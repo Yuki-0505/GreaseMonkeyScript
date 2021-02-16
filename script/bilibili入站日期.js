@@ -34,10 +34,9 @@
     }
     return fmt;
   }
-  let url = 'https://member.bilibili.com/x2/creative/h5/calendar/event?ts=0'
   $(function () {
     $.ajax({
-      url: url,
+      url: 'https://member.bilibili.com/x2/creative/h5/calendar/event?ts=0',
       xhrFields: {
         //允许跨域带Cookie
         withCredentials: true
@@ -45,18 +44,16 @@
       type: 'get',
       dataType: 'json',
       success: function (result) {
-        let joinTime = result.data.pfs.profile.jointime
         let date = new Date()
-        date.setTime(joinTime * 1000)
+        date.setTime(result.data.pfs.profile.jointime * 1000)
         let localeString = date.format('yyyy-MM-dd hh:mm:ss')
         console.log(date.format('yyyy-MM-dd hh:mm:ss'))
-        let $time = $(`<div class="item uid"><span class=""><b>&nbsp入站日期：<b/></span><span class="text"><b>${localeString}</b></span></div>`)
+        let $time = $(`<br/><div class="item"><b>&nbsp入站日期：${localeString}</b></div>`)
         let interval = setInterval(function () {
           let $row = $('#page-index .col-2 .user .row')
           if (!$row[0]) return
           clearInterval(interval)
           $row.height('74px')
-          $row.append($('<br/>'))
           $row.append($time)
         }, 300)
       }
