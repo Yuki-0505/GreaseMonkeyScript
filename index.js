@@ -9,9 +9,9 @@ fs.readFile(path.join(__dirname, './template.js'), 'utf8', (err, data) => {
 })
 
 function replace(data) {
-  let result = data.replace(/\n+/g, `\n`).replace(/\n\s{2}/g, `\n\\t`)
-  while (/\n(\\t)+\s{2}/g.test(result)) {
-    result = result.replace(/\\t\s{2}/g, `\\t\\t`)
+  let result = data.replace(/\n+/g, `\n`)
+  while (/(\n\s+)/g.test(result)) {
+    result = result.replace(RegExp.$1, `\n` + `\\t`.repeat(RegExp.$1.length/2))
   }
   result = `"` + result.replace(/\n/g, `",\n"`).replace(/,\n"$/g, ``)
   return result
