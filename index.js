@@ -13,6 +13,6 @@ function replace(data) {
   while (/(\n\s+)/g.test(result)) {
     result = result.replace(RegExp.$1, `\n` + `\\t`.repeat(RegExp.$1.length/2))
   }
-  result = `"` + result.replace(/\n/g, `",\n"`).replace(/,\n"$/g, ``)
+  result = `"` + result.replace(/"/g, `\\"`).replace(/\n/g, `",\n"`).replace(/,\n"$/g, ``)
   return result
 }
